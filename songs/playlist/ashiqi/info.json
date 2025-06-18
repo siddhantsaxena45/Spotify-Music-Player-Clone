@@ -1,4 +1,12 @@
 {
     "title":"Ashiqui 2",
-    "description":"Mithoon,Ankit Tiwari,Jeet Gannguli"
+    "description":"Mithoon,Ankit Tiwari,Jeet Gannguli",
+    "songs": [
+    "bhula_dena-mustafa_zahid.mp3",
+    "chahun_main_ya_naa-palak_muchhal.mp3",
+    "piya_aaye_na-tulsi_kumar.mp3",
+    "sunn_raha_hai-ankit_tiwari.mp3",
+    "tum_hi_ho-mithoon.mp3"
+  ]
+
 }

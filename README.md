@@ -1,68 +1,101 @@
-# Music Player Web App
-
-This is a simple web-based music player built with HTML, CSS, and JavaScript. It allows users to browse and play songs from various artists and playlists.
 
 live https://siddhantsaxena45.github.io/Spotify-Music-Player-Clone/
 
-## Features
-- 🎵 Play songs from different artists and playlists
-- 📂 Organized folder structure for easy management
-- 🎨 Responsive and interactive UI
-- ⏸️ Play/Pause functionality
-- ⏭️ Next/Previous track navigation
-- 🔊 Volume control
-- 🕒 Song progress tracking
+# 🎧 Spotify Music Player Clone
 
-## Folder Structure
-```
-📂 project-root
- ├── 📂 images         # Stores icons and assets
- ├── 📂 singers        # (Optional) Singers' images or data
- ├── 📂 songs          # Main music directory
- │   ├── 📂 artists    # Categorized by artist names
- │   │   ├── anirudh
- │   │   ├── arijit
- │   │   ├── pritam
- │   │   ├── ...
- │   ├── 📂 playlist   # Categorized playlists
- │   │   ├── animal
- │   │   │   ├── cover.jpg
- │   │   │   ├── info.json
- │   │   │   ├── song1.mp3
- │   │   │   ├── song2.mp3
- │   │   ├── ashiqi
- │   │   ├── ektharaja
- │   │   ├── ...
- ├── 📜 index.html     # Main HTML file
- ├── 📜 script.js      # Main JavaScript file
- ├── 📜 style.css      # Main CSS file
- ├── 📜 utility.css    # Utility styles
- ├── 📜 LICENSE        # License information
- ├── 📜 README.md      # Documentation (this file)
-```
-
-## Installation & Usage
-### 🔧 Running Locally
-1. Clone this repository:
-   ```bash
-   git clone https://github.com/yourusername/music-player.git
-   cd music-player
-   ```
-2. Open `index.html` in a browser.
-   - OR use Live Server in VS Code for best results.
-
-### 🌐 Hosting Online
-You can host this project using GitHub Pages, Netlify, or Vercel.
-
-## Known Issues
-- The project works best with Live Server (VS Code extension). If running directly in a browser, some features (like fetching songs dynamically) may not work due to CORS issues.
-
-## Contributing
-Feel free to fork and contribute! PRs are welcome. 🎶
-
-## License
-This project is licensed under the MIT License.
+A lightweight Spotify-inspired music player built with HTML, CSS, and JavaScript. Users can browse albums and artists, view covers, and play MP3 songs—all from a neat UI!
 
 ---
-Made with ❤️ by SIDDHANT SAXENA
 
+## 🚀 Features
+
+- 🔊 Audio playback with controls (play, pause, next, previous, volume, seek)
+- 🎨 Responsive music UI with playlists and artist browsing
+- 📁 Organized song folders by playlist and artist
+- 🧠 Scroll effects and interaction feedback
+- 📂 Auto-generated `info.json` files for song lists
+
+---
+
+## 📁 Folder Structure
+
+
+
+Spotify-Music-Player/
+│
+├── images/               # UI icons (play, pause, music icon, etc.)
+├── singers/              # Artist images (named after folder)
+├── songs/
+│   ├── playlist/
+│   │   ├── <album-folder>/
+│   │   │   ├── song1.mp3
+│   │   │   ├── cover.jpg
+│   │   │   └── info.json
+│   │   └── index.json    # Lists all playlists
+│   └── artists/
+│       ├── <artist-folder>/
+│       │   ├── song1.mp3
+│       │   └── info.json
+│       └── index.json    # Lists all artists
+├── style.css
+├── script.js
+└── index.html
+
+
+---
+
+## 🧾 JSON Format
+
+### `songs/playlist/<album>/info.json`
+
+```
+{
+  "title": "Album Title",
+  "description": "Artist Name",
+  "songs": [
+    "song1.mp3",
+    "song2.mp3"
+  ]
+}
+```
+
+### `songs/artists/<artist>/info.json`
+
+```
+{
+  "songs": [
+    "formatted_song_name.mp3"
+  ]
+}
+```
+
+🎯 **Tip:** All filenames use lowercase, hyphens/underscores only. Example:
+`pehle_bhi_main-vishal_mishra.mp3`
+
+---
+
+## 🛠️ How to Run
+
+1. Clone or download the repo:
+
+```
+git clone https://github.com/siddhantsaxena45/Spotify-Music-Player-Clone.git
+```
+
+2. Open `index.html` in any browser.
+
+> ⚠️ Chrome blocks autoplay from GitHub Pages sometimes. Use [Live Server](https://marketplace.visualstudio.com/items?itemName=ritwickdey.LiveServer) or serve locally.
+
+---
+
+
+## 🧑‍💻 Author
+
+**Siddhant Saxena**
+🔗 [GitHub](https://github.com/siddhantsaxena45)
+
+---
+
+## 📄 License
+
+MIT License. Free to use for learning purposes. Attribution appreciated ❤️

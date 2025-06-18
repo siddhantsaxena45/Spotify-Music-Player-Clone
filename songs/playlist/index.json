@@ -1,0 +1,32 @@
+[
+  {
+    "folder": "animal",
+    "title": "Animal",
+    "description": "Saari Duniya Jalaa Denge"
+  },
+  {
+    "folder": "ashiqi",
+    "title": "Aashiqui",
+    "description": "Romantic hits that stay forever"
+  },
+  {
+    "folder": "ektharaja",
+    "title": "Ek Tha Raja",
+    "description": "Royal beats & swag"
+  },
+  {
+    "folder": "moosetape",
+    "title": "Moosetape",
+    "description": "Sidhu Moosewala exclusive"
+  },
+  {
+    "folder": "sajini",
+    "title": "Sajini",
+    "description": "Sajni Sajni re"
+  },
+  {
+    "folder": "still",
+    "title": "Still Rollin",
+    "description": "Shubh's finest collection"
+  }
+]

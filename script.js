@@ -108,7 +108,7 @@ function playmusic(track, pause = false) {
 //     }
 // }
 async function displayalbums() {
-    let res = await fetch("/songs/playlist/index.json");
+    let res = await fetch("songs/playlist/index.json");
     let playlists = await res.json();
     let cardcontainer = document.querySelector(".cardsContainer");
 
@@ -133,7 +133,7 @@ async function displayalbums() {
 }
 
 async function displayartists() {
-    let res = await fetch("/songs/artists/index.json");
+    let res = await fetch("songs/artists/index.json");
     let artists = await res.json();
     let artistSection = document.querySelector(".artists");
 

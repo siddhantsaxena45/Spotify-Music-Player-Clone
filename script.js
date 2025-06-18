@@ -132,9 +132,35 @@ async function displayalbums() {
     });
 }
 
+async function displayartists() {
+    let res = await fetch("/songs/artists/index.json");
+    let artists = await res.json();
+    let artistSection = document.querySelector(".artists");
+
+    for (let artist of artists) {
+        artistSection.innerHTML += `
+        <div data-folder="${artist.folder}" class="artistCard cardscript">
+            <div class="image"><img src="/songs/artists/${artist.folder}/cover.jpg" alt="${artist.title}"></div>
+            <div class="singerText">
+                <div class="dark">${artist.title}</div>
+                <div class="light">Artist</div>
+            </div>
+            <div class="play"><img src="images/play.svg" alt="play"></div>
+        </div>`;
+    }
+
+    // Rebind events
+    Array.from(document.querySelectorAll(".artistCard")).forEach(element => {
+        element.addEventListener("click", async item => {
+            songs = await getsongs(`songs/artists/${item.currentTarget.dataset.folder}`);
+            playmusic(songs[0]);
+        });
+    });
+}
 
 async function man() {
     await displayalbums();
+    await displayartists();
     await getsongs(`songs/artists/pritam`);
     playmusic(songs[0], true);
 

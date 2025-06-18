@@ -31,20 +31,53 @@ let songs = [];
 let currfolder;
 let locate = window.location.pathname;
 let loc = locate.substring(1, locate.lastIndexOf("/"));
+
+// async function getsongs(folder) {
+//     currfolder = folder;
+//     let a = await fetch(`/${folder}/`);
+//     let response = await a.text();
+//     let div = document.createElement("div");
+//     div.innerHTML = response;
+//     let as = div.getElementsByTagName("a");
+//     songs = [];
+//     for (let index = 0; index < as.length; index++) {
+//         const element = as[index];
+//         if (element.href.endsWith(".mp3")) {
+//             songs.push(element.href.split(`/${folder}/`)[1]);
+//         }
+//     }
+
+//     let songul = document.querySelector(".songlist ul");
+//     songul.innerHTML = "";
+//     for (const song of songs) {
+//         songul.innerHTML += ` 
+//         <li> 
+//             <img src="images/music.svg" alt="">
+//             <div class="songinfo">
+//                 <div class="songname">${song.replaceAll('%20', " ")}</div>
+//             </div>
+//             <div class="playnow">
+//                 <span>Play now</span>
+//                 <img src="images/start.svg" alt="">  
+//             </div>
+//         </li>`;
+//     }
+
+//     Array.from(document.querySelector(".songlist").getElementsByTagName("li")).forEach(element => {
+//         element.addEventListener("click", () => {
+//             let track = element.querySelector(".songname").innerHTML.trim();
+//             playmusic(track);
+//         });
+//     });
+
+//     return songs;
+// }
+
 async function getsongs(folder) {
     currfolder = folder;
-    let a = await fetch(`/${folder}/`);
-    let response = await a.text();
-    let div = document.createElement("div");
-    div.innerHTML = response;
-    let as = div.getElementsByTagName("a");
-    songs = [];
-    for (let index = 0; index < as.length; index++) {
-        const element = as[index];
-        if (element.href.endsWith(".mp3")) {
-            songs.push(element.href.split(`/${folder}/`)[1]);
-        }
-    }
+    let response = await fetch(`${folder}/info.json`);
+    let data = await response.json();
+    songs = data.songs || [];
 
     let songul = document.querySelector(".songlist ul");
     songul.innerHTML = "";
@@ -53,7 +86,7 @@ async function getsongs(folder) {
         <li> 
             <img src="images/music.svg" alt="">
             <div class="songinfo">
-                <div class="songname">${song.replaceAll('%20', " ")}</div>
+                <div class="songname">${song}</div>
             </div>
             <div class="playnow">
                 <span>Play now</span>
@@ -71,6 +104,7 @@ async function getsongs(folder) {
 
     return songs;
 }
+
 
 function playmusic(track, pause = false) {
     currentsong.src = `${currfolder}/` + track;
@@ -107,6 +141,7 @@ function playmusic(track, pause = false) {
 //         }
 //     }
 // }
+
 async function displayalbums() {
     let res = await fetch("songs/playlist/index.json");
     let playlists = await res.json();

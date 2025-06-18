@@ -205,8 +205,8 @@ async function displayartists() {
 async function man() {
     await displayalbums();
     await displayartists();
-    await getsongs(`songs/artists/pritam`);
-    playmusic(songs[0], true);
+    // await getsongs(`songs/artists/pritam`);
+    // playmusic(songs[0], true);
 
     play.addEventListener("click", () => {
         if (currentsong.paused) {

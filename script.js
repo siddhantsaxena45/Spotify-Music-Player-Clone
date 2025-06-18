@@ -140,7 +140,8 @@ async function displayartists() {
     for (let artist of artists) {
         artistSection.innerHTML += `
         <div data-folder="${artist.folder}" class="artistCard cardscript">
-            <div class="image"><img src="songs/artists/${artist.folder}/cover.jpg" alt="${artist.title}"></div>
+           <div class="image"><img src="singers/${artist.folder}.jpg" alt="${artist.title}"></div>
+
             <div class="singerText">
                 <div class="dark">${artist.title}</div>
                 <div class="light">Artist</div>

@@ -107,7 +107,8 @@ async function getsongs(folder) {
 
 
 function playmusic(track, pause = false) {
-    currentsong.src = `${currfolder}/` + track;
+    currentsong.src = `${currfolder}/${encodeURIComponent(track)}`;
+
     if (!pause) {
         currentsong.play();
         play.src = "images/pause.svg";

@@ -116,7 +116,7 @@ async function displayalbums() {
         let folder = playlist.folder;
         cardcontainer.innerHTML += `
             <div data-folder="${folder}" class="card cardscript">
-                <img src="/songs/playlist/${folder}/cover.jpg" alt="">
+                <img src="songs/playlist/${folder}/cover.jpg" alt="">
                 <h3>${playlist.title}</h3>
                 <p>${playlist.description}</p>
                 <div class="play"><img src="images/play.svg" alt=""></div>
@@ -140,7 +140,7 @@ async function displayartists() {
     for (let artist of artists) {
         artistSection.innerHTML += `
         <div data-folder="${artist.folder}" class="artistCard cardscript">
-            <div class="image"><img src="/songs/artists/${artist.folder}/cover.jpg" alt="${artist.title}"></div>
+            <div class="image"><img src="songs/artists/${artist.folder}/cover.jpg" alt="${artist.title}"></div>
             <div class="singerText">
                 <div class="dark">${artist.title}</div>
                 <div class="light">Artist</div>

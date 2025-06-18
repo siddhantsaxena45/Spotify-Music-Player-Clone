@@ -2,6 +2,8 @@
 
 This is a simple web-based music player built with HTML, CSS, and JavaScript. It allows users to browse and play songs from various artists and playlists.
 
+live https://siddhantsaxena45.github.io/Spotify-Music-Player/
+
 ## Features
 - 🎵 Play songs from different artists and playlists
 - 📂 Organized folder structure for easy management

@@ -122,7 +122,16 @@ async function displayalbums() {
                 <div class="play"><img src="images/play.svg" alt=""></div>
             </div>`;
     }
+
+    // Bind click after loading
+    Array.from(document.querySelectorAll(".card")).forEach(element => {
+        element.addEventListener("click", async item => {
+            songs = await getsongs(`songs/playlist/${item.currentTarget.dataset.folder}`);
+            playmusic(songs[0]);
+        });
+    });
 }
+
 
 async function man() {
     await displayalbums();

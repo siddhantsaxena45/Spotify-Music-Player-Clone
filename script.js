@@ -82,29 +82,45 @@ function playmusic(track, pause = false) {
     document.querySelector(".songtime").innerHTML = "00:00/00:00";
 }
 
+// async function displayalbums() {
+//     let a = await fetch(`/songs/playlist/`);
+//     console.log(`${loc}songs/playlist/`);
+//     let response = await a.text();
+//     console.log(response);
+//     let div = document.createElement("div");
+//     div.innerHTML = response;
+//     let anchor = div.getElementsByTagName("a");
+//     let cardcontainer = document.querySelector(".cardsContainer");
+
+//     for (let element of anchor) {
+//         if (element.href.includes("/playlist")) {
+//             let folder = element.href.split("/").slice(-2)[0];
+//             let a = await fetch(`/songs/playlist/${folder}/info.json`);
+//             let response = await a.json();
+//             cardcontainer.innerHTML += `
+//             <div data-folder="${folder}" class="card cardscript">
+//                 <img src="/songs/playlist/${folder}/cover.jpg" alt="">
+//                 <h3>${response.title}</h3>
+//                 <p>${response.description}</p>
+//                 <div class="play"><img src="images/play.svg" alt=""></div>
+//             </div>`;
+//         }
+//     }
+// }
 async function displayalbums() {
-    let a = await fetch(`/songs/playlist/`);
-    console.log(`${loc}songs/playlist/`);
-    let response = await a.text();
-    console.log(response);
-    let div = document.createElement("div");
-    div.innerHTML = response;
-    let anchor = div.getElementsByTagName("a");
+    let res = await fetch("/songs/playlist/index.json");
+    let playlists = await res.json();
     let cardcontainer = document.querySelector(".cardsContainer");
 
-    for (let element of anchor) {
-        if (element.href.includes("/playlist")) {
-            let folder = element.href.split("/").slice(-2)[0];
-            let a = await fetch(`/songs/playlist/${folder}/info.json`);
-            let response = await a.json();
-            cardcontainer.innerHTML += `
+    for (let playlist of playlists) {
+        let folder = playlist.folder;
+        cardcontainer.innerHTML += `
             <div data-folder="${folder}" class="card cardscript">
                 <img src="/songs/playlist/${folder}/cover.jpg" alt="">
-                <h3>${response.title}</h3>
-                <p>${response.description}</p>
+                <h3>${playlist.title}</h3>
+                <p>${playlist.description}</p>
                 <div class="play"><img src="images/play.svg" alt=""></div>
             </div>`;
-        }
     }
 }
 
